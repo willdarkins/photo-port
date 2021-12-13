@@ -1,6 +1,6 @@
 //this App.js file is the center of the application
 import React from 'react';
-import './App.css';
+import './index.css';
 import About from './components/About';
 import Nav from './components/Nav';
 
