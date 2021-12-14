@@ -3,7 +3,7 @@ import { capitalizeFirstLetter } from '../../assets/utils/helpers'
 import photo from '../../assets/small/commercial/0.jpg'
 
 function Gallery(props) {
-    currentCategory = {
+    const currentCategory = {
         name: "commercial",
         description: "Photos of grocery stores, food trucks, and other commercial projects"
     }
@@ -14,7 +14,7 @@ function Gallery(props) {
             <div className="flex-row">
                 <img 
                 src={photo}
-                alt="Commercial Exampl"
+                alt="Commercial Example"
                 className="img-thumbnail mx-1"
                 />
             </div>
