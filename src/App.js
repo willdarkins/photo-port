@@ -6,9 +6,10 @@ import About from './components/About';
 import Gallery from './components/Gallery';
 //we set the initial value of contactSelected to false
 //prevents the contact form from showing when a user initially navigates to the homepage
-const [contactSelected, setContactSelected] = useState(false);
+
 
 function App() {
+  const [contactSelected, setContactSelected] = useState(false);
   const [categories] = useState([
     {
       name: 'commercial',

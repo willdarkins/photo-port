@@ -31,25 +31,26 @@ function Nav(props) {
               About me
             </a>
           </li>
-          <li className={"mx-2"}>
+          {/* If the value of contactSelected is true, which means that the user selected Contact...*/}
+          {/* we want to add the CSS class navActive, which will illuminate the background.  */}
+          <li className={`mx-2 ${contactSelected && 'navActive'}`}>
             {/* set the value of contactSelected to true when selecting the Contact item in the menu */}
             <span onClick={() => {
-              setCurrentCategory(category);
-              setContactSelected(false);
+              setContactSelected(true);
             }}>
               Contact
             </span>
           </li>
           {categories.map((category) => (
             <li
-              className={`mx-1 ${currentCategory.name === category.name
+              className={`mx-1 ${currentCategory.name === category.name && !contactSelected && `navActive`
                 }`}
               key={category.name}
             >
-              <span
-                onClick={() => {
-                  setCurrentCategory(category);
-                }}
+              <span onClick={() => {
+                setCurrentCategory(category);
+                setContactSelected(false);
+              }}
               >
                 {capitalizeFirstLetter(category.name)}
               </span>
