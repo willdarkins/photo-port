@@ -9,8 +9,11 @@ function ContactForm () {
     //assign the value taken from the input field in the UI with e.target.value and assign this value to the property formState.name
     //use the spread operator, ...formState, so we can retain the other key-value pairs in this object
     //without spread operator, the formState object would be overwritten to only contain the name: value key pair
+    // name property of target in the second expression actually refers to the name attribute of the form element
+    //matches the property names of formState (name, email, and message)
     function handleChange(e) {
-        setFormState({...formState, name: e.target.value})
+        // setFormState({...formState, name: e.target.value})
+        setFormState({...formState, [e.target.name]: e.target.value})
     }
     console.log(formState)
     return (
@@ -24,11 +27,11 @@ function ContactForm () {
             </div>
             <div>
                 <label htmlFor="email">Email Address:</label>
-                <input type = "email" name = "email" defaultValue={email}/>
+                <input type = "email" name = "email" defaultValue={email} onChange={handleChange}/>
             </div>
             <div>
                 <label htmlFor="message">Message:</label>
-                <textarea name = "message" rows = "5" defaultValue={message}/>
+                <textarea name = "message" rows = "5" defaultValue={message} onChange={handleChange}/>
             </div>
             <button type="submit">Submit</button>
         </form>
