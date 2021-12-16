@@ -15,11 +15,15 @@ function ContactForm () {
         // setFormState({...formState, name: e.target.value})
         setFormState({...formState, [e.target.name]: e.target.value})
     }
-    console.log(formState)
+    // function that'll handle the submission of the form data
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log(formState);
+      }
     return (
     <section>
         <h1>Contact Me</h1>
-        <form id="contact-form">
+        <form id="contact-form" onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="name">Name:</label>
                 {/* onChange is an event listener */}
