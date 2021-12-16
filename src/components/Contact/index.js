@@ -46,16 +46,26 @@ function ContactForm() {
                 <div>
                     <label htmlFor="name">Name:</label>
                     {/* onChange is an event listener */}
-                    <input type="text" name="name" defaultValue={name} onChange={handleChange} />
+                    {/* onBlur evaluates the format once the focus has changed from the input */}
+                    <input type="text" name="name" defaultValue={name} onBlur ={handleChange} />
                 </div>
                 <div>
                     <label htmlFor="email">Email Address:</label>
-                    <input type="email" name="email" defaultValue={email} onChange={handleChange} />
+                    <input type="email" name="email" defaultValue={email} onBlur ={handleChange} />
                 </div>
                 <div>
                     <label htmlFor="message">Message:</label>
-                    <textarea name="message" rows="5" defaultValue={message} onChange={handleChange} />
+                    <textarea name="message" rows="5" defaultValue={message} onBlur ={handleChange} />
                 </div>
+                {/* If errorMessage has a truthy value, the <div> block will render. */}
+                {/* If errorMessage doesn't have an error message, the following <div> block doesn't render. */}
+                {/* The && operator—known as the AND operator—is being used here as a short circuit.  */}
+                {/* If the first value resolves to true, the second expression is evaluated. */}
+                {errorMessage && (
+                    <div>
+                        <p className="error-text">{errorMessage}</p>
+                    </div>
+                )}
                 <button type="submit">Submit</button>
             </form>
         </section>
