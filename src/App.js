@@ -1,3 +1,4 @@
+import ContactForm from './components/Contact';
 import React, { useState } from 'react';
 import './assets/index.css'
 import Nav from './components/Nav';
@@ -25,8 +26,9 @@ function App() {
         currentCategory={currentCategory}
       ></Nav>
       <main>
+        <ContactForm />
         <Gallery currentCategory={currentCategory}></Gallery>
-        <About></About>
+        <About />
       </main>
     </div>
   );
