@@ -4,6 +4,9 @@ import './assets/index.css'
 import Nav from './components/Nav';
 import About from './components/About';
 import Gallery from './components/Gallery';
+//we set the initial value of contactSelected to false
+//prevents the contact form from showing when a user initially navigates to the homepage
+const [contactSelected, setContactSelected] = useState(false);
 
 function App() {
   const [categories] = useState([
@@ -26,9 +29,16 @@ function App() {
         currentCategory={currentCategory}
       ></Nav>
       <main>
-        <ContactForm />
-        <Gallery currentCategory={currentCategory}></Gallery>
-        <About />
+      {/* if the contactSelected is false, the Gallery and About components should be rendered */}
+      {/* but if contactedSelected is true, the ContactForm component should be rendered. */}
+        {!contactSelected ? (
+          <>
+            <Gallery currentCategory={currentCategory}></Gallery>
+            <About />
+          </>
+        ) : (
+          <ContactForm />
+        )}
       </main>
     </div>
   );
