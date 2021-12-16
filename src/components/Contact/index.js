@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 
 function ContactForm () {
+    const [formState, setFormState] = state()
     return (
     <section>
         <h1>Contact Me</h1>
