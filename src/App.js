@@ -27,6 +27,8 @@ function App() {
         categories={categories}
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
+        contactSelected={contactSelected}
+        setContactSelected={setContactSelected}
       ></Nav>
       <main>
       {/* if the contactSelected is false, the Gallery and About components should be rendered */}
