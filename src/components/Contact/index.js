@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 function ContactForm () {
     //we want to clear the input fields on the component loading - thus empty strings
-    const [formState, setFormState] = state({name: '', email: '', message: ''})
+    const [formState, setFormState] = useState({name: '', email: '', message: ''})
     // destructure the formState object into its named properties, name, email, and message.
     const { name, email, message } = formState;
     // using the setFormState function to update the formState value for the name property
