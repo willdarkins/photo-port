@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Modal from '../Modal';
 
 const PhotoList = ({ category }) => {
+  // we set the initial state of isModalOpen to false, because we don't want the modal to open until a user has clicked on an image.
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [photos] = useState([
     {
       name: 'Grocery aisle',
@@ -123,12 +125,16 @@ const PhotoList = ({ category }) => {
   const [currentPhoto, setCurrentPhoto] = useState();
 
   const toggleModal = (image, i) => {
-    setCurrentPhoto({...image, index: i})
+    setCurrentPhoto({ ...image, index: i })
+    setIsModalOpen(!isModalOpen);
   }
-  
+
   return (
     <div>
-      <Modal />
+      {/* will only render the Modal if the value isModalOpen is true */}
+      {isModalOpen && (
+        <Modal currentPhoto={currentPhoto} onClose={toggleModal} />
+      )}
       <div className="flex-row">
         {currentPhotos.map((image, i) => (
           <img
