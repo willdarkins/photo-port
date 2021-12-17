@@ -8,7 +8,7 @@ function Modal({ onClose, currentPhoto }) {
             <div className="modalContainer">
             <h3 className="modalTitle">{name}</h3>
                 {/* destructure currentPhoto properties into constants to assign their values into the modal */}
-                <img src={require(`../../assets/large/${category}/${index}.jpg`)} alt="current category" />
+                <img src={require(`../../assets/large/${category}/${index}.jpg`).default} alt="current category" />
                 <p>{description}</p>
                 <button onClick={onClose} type="button">
                     Close this modal
